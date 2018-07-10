@@ -11,6 +11,15 @@ layout: default
 
   <h2 class="page-heading">Tips and Tricks</h2>
 
+  <h2 class="page-heading">Concepts</h2>
+  {%- for concept in site.concepts -%}
+    <h3>
+      <a class="post-link" href="{{ concept.url | relative_url }}">
+        {{ concept.title | escape }}
+      </a>
+    </h3>
+  {%- endfor -%}
+
   {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
     <ul class="post-list">

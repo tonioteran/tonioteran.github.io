@@ -42,3 +42,9 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+# Adding collections:
+collections:
+  concepts:
+    output: true
+    permalink: /:collection/:path
