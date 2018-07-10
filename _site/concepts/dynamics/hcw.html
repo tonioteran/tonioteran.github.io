@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v3.7.3" />
 <meta property="og:title" content="Hill-Clohessy-Wiltshire Equations" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The intention of this space is to create an easily accessible compendium of useful tips and tricks that I’ve found throughout the ages while surfing the wonders of the WWW." />
-<meta property="og:description" content="The intention of this space is to create an easily accessible compendium of useful tips and tricks that I’ve found throughout the ages while surfing the wonders of the WWW." />
+<meta name="description" content="The linearized relative dynamics between a chaser satellite and a target object in orbit can be described by the following set of equations:" />
+<meta property="og:description" content="The linearized relative dynamics between a chaser satellite and a target object in orbit can be described by the following set of equations:" />
 <link rel="canonical" href="http://localhost:4000/concepts/dynamics/hcw" />
 <meta property="og:url" content="http://localhost:4000/concepts/dynamics/hcw" />
 <meta property="og:site_name" content="tonio’s world" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-07-10T07:17:07-07:00" />
+<meta property="article:published_time" content="2018-07-10T08:00:00-07:00" />
 <script type="application/ld+json">
-{"description":"The intention of this space is to create an easily accessible compendium of useful tips and tricks that I’ve found throughout the ages while surfing the wonders of the WWW.","@type":"BlogPosting","headline":"Hill-Clohessy-Wiltshire Equations","url":"http://localhost:4000/concepts/dynamics/hcw","dateModified":"2018-07-10T07:17:07-07:00","datePublished":"2018-07-10T07:17:07-07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/concepts/dynamics/hcw"},"@context":"http://schema.org"}</script>
+{"description":"The linearized relative dynamics between a chaser satellite and a target object in orbit can be described by the following set of equations:","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/concepts/dynamics/hcw"},"@type":"BlogPosting","url":"http://localhost:4000/concepts/dynamics/hcw","headline":"Hill-Clohessy-Wiltshire Equations","dateModified":"2018-07-10T08:00:00-07:00","datePublished":"2018-07-10T08:00:00-07:00","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="tonio's world" /><script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
   <script type="text/x-mathjax-config">
@@ -54,19 +54,27 @@
   </header>
 
   <div class="post-content">
-    <p>The intention of this space is to create an easily accessible compendium of useful tips and tricks that I’ve found throughout the ages while surfing the wonders of the WWW.</p>
+    <p>The linearized relative dynamics between a chaser satellite and a target object in orbit can be described by the following set of equations:</p>
 
-<h2 id="command-line-tools">Command Line Tools</h2>
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+\ddot{x}(t) &= 2n \cdot \dot{y}(t) + 3n^2 \cdot x(t) \; [\;+\; \frac{F_x}{m} \; ] \\[0.3em]
+\ddot{y}(t) &= -2n \cdot \dot{x}(t)  \; [\;+\; \frac{F_y}{m} \; ]  \\[0.3em]
+\ddot{z}(t) &= -n^2 \cdot z(t)  \; [\;+\; \frac{F_z}{m} \; ]
+\end{align*} %]]></script>
 
-<h3 id="removing-lines-from-text-files">Removing Lines From Text Files</h3>
-<p>Credit: <a href="https://stackoverflow.com/questions/5410757/delete-lines-in-a-text-file-that-contain-a-specific-string">SiegeX</a></p>
+<p>with the terms appearing inside the brackets being optional (controlled case).</p>
 
-<p>For deleting text lines containing a particular string, I use <code class="highlighter-rouge">sed</code>, e.g.:</p>
+<p>Assumptions:</p>
+<ul>
+  <li>Distance from target to chaser is much much smaller than the orbital radius, i.e., $\vert \boldsymbol{\rho}(t) \vert &lt; &lt; \vert \mathbf{r}_{tgt} \vert \Rightarrow \boldsymbol{r} _{ch} \approx \mathbf{r} _{tgt}  $</li>
+  <li>A first order approximation on the term $\left( 1 + \frac{2x}{r_{tgt}} \right)^{-3/2} \approx 1 - \frac{3x}{r_{tgt}}$</li>
+  <li>Reduce to time invariant by assuming target orbit’s eccentricity equal to zero.</li>
+</ul>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed <span class="nt">-i</span> <span class="s1">'/pattern/d'</span> ./nameOfFile
-</code></pre></div></div>
+<h2 id="discrete-system-equations">Discrete System Equations</h2>
 
-<h3 id="reformatting-images">Reformatting Images</h3>
+<p>The discrete, analytical solution to the system can be expressed as a traditional LTI system of the form $ \mathbf{x}_{k+1} = \mathbf{A}_d \mathbf{x}_k + \mathbf{B}_d \mathbf{u}_k $</p>
 
   </div>
 

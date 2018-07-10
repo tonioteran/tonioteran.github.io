@@ -3,19 +3,28 @@ layout: page
 title: "Hill-Clohessy-Wiltshire Equations"
 topic: "dynamics"
 subtopic: "relative dynamics"
+date: 2018-07-10 08:00
+bibliography: /home/tonio/Documents/test.bib
 ---
 
-The intention of this space is to create an easily accessible compendium of useful tips and tricks that I've found throughout the ages while surfing the wonders of the WWW. 
+The linearized relative dynamics between a chaser satellite and a target object in orbit can be described by the following set of equations:
 
-## Command Line Tools
+$$
+\begin{align*}
+\ddot{x}(t) &= 2n \cdot \dot{y}(t) + 3n^2 \cdot x(t) \; [\;+\; \frac{F_x}{m} \; ] \\[0.3em]
+\ddot{y}(t) &= -2n \cdot \dot{x}(t)  \; [\;+\; \frac{F_y}{m} \; ]  \\[0.3em]
+\ddot{z}(t) &= -n^2 \cdot z(t)  \; [\;+\; \frac{F_z}{m} \; ]
+\end{align*}
+$$
 
-### Removing Lines From Text Files
-Credit: [SiegeX](https://stackoverflow.com/questions/5410757/delete-lines-in-a-text-file-that-contain-a-specific-string)
+with the terms appearing inside the brackets being optional (controlled case).
 
-For deleting text lines containing a particular string, I use `sed`, e.g.:
 
-```bash
-sed -i '/pattern/d' ./nameOfFile
-```
+Assumptions:
+* Distance from target to chaser is much much smaller than the orbital radius, i.e., $\vert \boldsymbol{\rho}(t) \vert < < \vert \mathbf{r}_{tgt} \vert \Rightarrow \boldsymbol{r} _{ch} \approx \mathbf{r} _{tgt}  $
+* A first order approximation on the term $\left( 1 + \frac{2x}{r_{tgt}} \right)^{-3/2} \approx 1 - \frac{3x}{r_{tgt}}$
+* Reduce to time invariant by assuming target orbit's eccentricity equal to zero.
 
-### Reformatting Images
+## Discrete System Equations
+
+The discrete, analytical solution to the system can be expressed as a traditional LTI system of the form $ \mathbf{x}_{k+1} = \mathbf{A}_d \mathbf{x}_k + \mathbf{B}_d \mathbf{u}_k $
