@@ -4,7 +4,6 @@ title: "Hill-Clohessy-Wiltshire Equations"
 topic: "dynamics"
 subtopic: "relative dynamics"
 date: 2018-07-10 08:00
-bibliography: /home/tonio/Documents/test.bib
 ---
 
 The linearized relative dynamics between a chaser satellite and a target object in orbit can be described by the following set of equations:
@@ -28,3 +27,7 @@ Assumptions:
 ## Discrete System Equations
 
 The discrete, analytical solution to the system can be expressed as a traditional LTI system of the form $ \mathbf{x}_{k+1} = \mathbf{A}_d \mathbf{x}_k + \mathbf{B}_d \mathbf{u}_k $
+
+
+{% bibliography --file concepts %}
+
